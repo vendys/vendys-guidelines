@@ -7,6 +7,7 @@
     "url": "https://github.com/vendys/vendys-guidelines/issues"
   },
   "devDependencies": {
+    "fixpack": "^2.3.1",
     "lerna": "^2.11.0",
     "rimraf": "^2.6.2"
   },
@@ -21,9 +22,9 @@
   },
   "scripts": {
     "bump": "lerna publish --skip-npm",
+    "distclean": "rimraf node_modules",
     "publish": "lerna exec --bail=false -- 'npm publish'",
-    "test": "lerna run test --parallel",
-    "distclean": "rimraf node_modules"
+    "test": "lerna run test --parallel"
   },
   "workspaces": [
     "markdown"

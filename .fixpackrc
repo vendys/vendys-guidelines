@@ -1,0 +1,8 @@
+{
+  "warnOnPrivate": [
+    "name",
+    "description",
+    "version",
+    "author"
+  ]
+}
