@@ -1,0 +1,31 @@
+{
+  "name": "@vendys/guidelines",
+  "description": "변경이력, 문서, 코드 등의 작성 방법을 정의한 벤디스 가이드라인",
+  "version": "0.0.0",
+  "author": "Vendys Inc.",
+  "bugs": {
+    "url": "https://github.com/vendys/vendys-guidelines/issues"
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0",
+    "rimraf": "^2.6.2"
+  },
+  "keywords": [
+    "styleguide"
+  ],
+  "license": "CC-BY-4.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vendys/vendys-guidelines"
+  },
+  "scripts": {
+    "bump": "lerna publish --skip-npm",
+    "publish": "lerna exec --bail=false -- 'npm publish'",
+    "test": "lerna run test --parallel",
+    "distclean": "rimraf node_modules"
+  },
+  "workspaces": [
+    "markdown"
+  ]
+}
