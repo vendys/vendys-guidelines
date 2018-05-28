@@ -1,0 +1,155 @@
+{
+  "comment": "명확한 설정을 위해 가능한 모든 규칙을 나열(https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md)",
+  "comment": "markdownlint가 구현하지 못 한 규칙이 있어 번호가 연속되지 않음",
+
+  "comment": "MD001: 제목의 수준은 한 번에 한 단계씩 증가",
+  "header-increment": true,
+
+  "comment": "MD002: 문서의 첫 번째 제목은 최상위 수준으로 작성",
+  "first-header-h1": true,
+
+  "comment": "MD003: 제목은 '#'으로 시작하는 Atx 스타일을 따름",
+  "header-style": {
+    "style": "atx"
+  },
+
+  "comment": "MD004: 순서 없는 목록은 '*', '+', '-'의 순서로 작성",
+  "ul-style": {
+    "style": "sublist"
+  },
+
+  "comment": "MD005: 목록에서 같은 수준의 항목은 같은 크기로 들여씀",
+  "list-indent": true,
+
+  "comment": "MD006: 순서 없는 목록은 들여쓰기 없이 시작",
+  "ul-start-left": false,
+
+  "comment": "MD007: 순서 없는 목록의 들여쓰기는 상위 수준 항목과 정렬될 수 있도록 두 개의 스페이스 사용",
+  "ul-indent": {
+    "indent": 2
+  },
+
+  "comment": "MD009: 두 개의 스페이스를 이용해 줄 바꿈하는 경우를 제외하고, 줄 끝에 스페이스를 사용하지 않음",
+  "no-trailing-spaces": {
+    "br_spaces": 2,
+    "comment": "목록의 빈 줄을 들여쓰기 할 필요는 없음",
+    "list_item_empty_lines": false
+  },
+
+  "comment": "MD010: 스페이스 대신 탭(tab)을 사용하지 않음",
+  "no-hard-tabs": {
+    "code_blocks": true
+  },
+
+  "comment": "MD011: Markdown의 링크 문법을 반대로 쓸 수 없음",
+  "no-reversed-links": true,
+
+  "comment": "MD012: 두 줄 이상 연속해 빈 줄을 사용하지 않음",
+  "no-multiple-blanks": {
+    "maximum": 1
+   },
+
+  "comment": "MD013: 줄 길이를 제한하지 않음",
+  "line-length": false,
+
+  "comment": "MD014: 출력이 없는 쉘 명령어 앞의 $를 허용",
+  "commands-show-output": false,
+
+  "comment": "MD018: Atx 스타일 제목의 `#` 뒤에 스페이스를 사용",
+  "no-missing-space-atx": true,
+
+  "comment": "MD019: Atx 스타일 제목의 `#` 뒤에 여러 개의 스페이스를 사용하지 않음",
+  "no-multiple-space-atx": true,
+
+  "comment": "MD020: 닫힌 ATX 스타일 제목의 # 앞뒤에 스페이스를 사용하지 않음",
+  "no-missing-space-closed-atx": true,
+
+  "comment": "MD021: 닫힌 ATX 스타일 제목의 # 앞뒤에 여러 개의 스페이스를 사용하지 않음",
+  "no-multiple-space-closed-atx": true,
+
+  "comment": "MD022: 제목 앞뒤에 빈 줄을 사용",
+  "comment": "단, 제목 앞에 HTML 앵커가 존재할 수 있어 이 규칙을 적용하지 않음",
+  "blanks-around-headers": false,
+
+  "comment": "MD023: 제목은 들여쓰기 없이 시작",
+  "header-start-left": true,
+
+  "comment": "MD024: 모든 제목의 내용은 서로 달라야 함",
+  "no-duplicate-header": true,
+
+  "comment": "MD025: 최상위 수준의 제목은 문서에 단 한 개만 존재",
+  "single-h1": true,
+
+  "comment": "MD026: 제목은 '.', ',', ';', ':' 등의 구두점으로 끝내지 않음",
+  "no-trailing-punctuation": {
+    "punctuation" : ".,;:"
+  },
+
+  "comment": "MD027: 인용 블록을 나타내는 기호 '>' 뒤에는 한 개의 스페이스를 사용",
+  "no-multiple-space-blockquote": true,
+
+  "comment": "MD028: 인용문 내 빈 줄을 허용",
+  "no-blanks-blockquote": false,
+
+  "comment": "MD029: 순서 있는 목록의 항목은 순서와 상관없이 모두 '1.'로 표기",
+  "ol-prefix": {
+    "style": "one"
+  },
+
+  "comment": "MD030: '-', '*', '+', '1.' 등 목록의 항목을 나타내는 기호 뒤에는 한 개의 스페이스를 사용",
+  "list-marker-space": {
+    "ul_single": 1,
+    "ol_single": 1,
+    "ul_multi": 1,
+    "ol_multi": 1
+  },
+
+  "comment": "MD031: 코드 블록 앞뒤에 빈 줄을 사용",
+  "blanks-around-fences": true,
+
+  "comment": "MD032: 목록 앞 뒤로 빈 줄을 사용",
+  "comment": "단, 목록 앞에 HTML 앵커가 존재할 수 있어 이 규칙을 적용하지 않음",
+  "blanks-around-lists": false,
+
+  "comment": "MD033: 인라인 HTML을 허용",
+  "no-inline-html": false,
+
+  "comment": "MD034: URL은 코드 스팬 없이 본문에 포함할 수 없음",
+  "no-bare-urls": true,
+
+  "comment": "MD035: 수평선은 '---'으로 표기",
+  "hr-style": {
+    "style": "---"
+  },
+
+  "comment": "MD036: 제목대신 볼드 또는 이탤릭 등으로 강조할 수 있음",
+  "no-emphasis-as-header": false,
+
+  "comment": "MD037: '**', '*', '__', '_' 등 볼드 또는 이탤릭 등 강조를 위한 기호 사이에 스페이스를 사용하지 않음",
+  "no-space-in-emphasis": true,
+
+  "comment": "MD038: 코드 스팬에 사용하는 '`' 기호 사이에 스페이스를 사용하지 않음",
+  "no-space-in-code": true,
+
+  "comment": "MD039: 링크를 삽입할 때 링크 텍스트를 나타내는 기호 '['의 뒤 또는 ']'의 앞에는 스페이스를 사용하지 않음",
+  "no-space-in-links": true,
+
+  "comment": "MD040: 코드 블록을 사용할 때는 포함된 코드의 언어를 명시",
+  "fenced-code-language": true,
+
+  "comment": "MD041: 파일의 첫 번째 줄에는 반드시 최상위 제목을 작성",
+  "first-line-h1": false,
+
+  "comment": "MD042: 연결된 대상이 없는 빈 링크는 사용하지 않음",
+  "no-empty-links": true,
+
+  "comment": "MD043: 제목은 정해진 구조를 따르지 않아도 됨",
+  "required-headers": null,
+
+  "comment": "MD044: 정해진 표기를 따라야 하는 특정 이름은 없음",
+  "proper-names": null,
+  "code_blocks": false,
+
+  "comment": "MD045: 이미지를 삽입하는 경우 이를 대체하기 위한 텍스트를 함께 명시",
+  "no-alt-text": true
+}
