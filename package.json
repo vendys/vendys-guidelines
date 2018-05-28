@@ -8,13 +8,21 @@
   },
   "devDependencies": {
     "fixpack": "^2.3.1",
+    "husky": "^0.14.3",
     "lerna": "^2.11.0",
+    "lint-staged": "^7.1.2",
     "rimraf": "^2.6.2"
   },
   "keywords": [
     "styleguide"
   ],
   "license": "CC-BY-4.0",
+  "lint-staged": {
+    "package.json": [
+      "fixpack",
+      "git add"
+    ]
+  },
   "private": true,
   "repository": {
     "type": "git",
@@ -23,6 +31,7 @@
   "scripts": {
     "bump": "lerna publish --skip-npm",
     "distclean": "rimraf node_modules",
+    "precommit": "lint-staged",
     "publish": "lerna exec --bail=false -- 'npm publish'",
     "test": "lerna run test --parallel"
   },
