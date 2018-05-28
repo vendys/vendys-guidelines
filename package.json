@@ -12,6 +12,7 @@
     "husky": "^0.14.3",
     "lerna": "^2.11.0",
     "lint-staged": "^7.1.2",
+    "markdownlint-cli": "^0.9.0",
     "rimraf": "^2.6.2"
   },
   "keywords": [
@@ -21,6 +22,10 @@
   "lint-staged": {
     "package.json": [
       "fixpack",
+      "git add"
+    ],
+    "*.md": [
+      "markdownlint --config markdown/.markdownlintrc",
       "git add"
     ]
   },
