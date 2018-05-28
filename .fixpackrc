@@ -2,7 +2,7 @@
   "warnOnPrivate": [
     "name",
     "description",
-    "version",
-    "author"
+    "author",
+    "license"
   ]
 }

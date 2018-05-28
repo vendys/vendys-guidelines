@@ -1,7 +1,6 @@
 {
   "name": "@vendys/guidelines",
   "description": "변경이력, 문서, 코드 등의 작성 방법을 정의한 벤디스 가이드라인",
-  "version": "0.0.0",
   "author": "Vendys Inc.",
   "bugs": {
     "url": "https://github.com/vendys/vendys-guidelines/issues"
@@ -38,7 +37,7 @@
     "bump": "lerna publish --skip-npm",
     "distclean": "rimraf node_modules",
     "precommit": "lint-staged",
-    "publish": "lerna exec --bail=false -- 'can-npm-publish && npm publish'",
+    "release": "lerna exec --bail=false -- 'can-npm-publish && npm publish'",
     "test": "lerna run test --parallel"
   },
   "workspaces": [
