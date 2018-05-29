@@ -26,7 +26,7 @@
 ### 문단(Paragraphs)과 줄 바꿈(Line Breaks)
 
 <a name="no-trailing-spaces"></a><a name="1.1"></a>
-- [1.1](#no-trailing-spaces) 두 개의 스페이스를 이용해 줄 바꿈하는 경우를 제외하고, 줄 끝에 스페이스를 사용하지 않는다. markdownlint: [`no-trailing-spaces`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009---trailing-spaces)
+* [1.1](#no-trailing-spaces) 두 개의 스페이스를 이용해 줄 바꿈하는 경우를 제외하고, 줄 끝에 스페이스를 사용하지 않는다. markdownlint: [`no-trailing-spaces`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md009---trailing-spaces)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -40,7 +40,7 @@
   ```
 
 <a name="no-hard-tabs"></a><a name="1.2"></a>
-- [1.2](#no-hard-tabs) 스페이스 대신 탭(tab)을 사용하지 않는다. markdownlint: [`no-hard-tabs`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md010---hard-tabs)
+* [1.2](#no-hard-tabs) 스페이스 대신 탭(tab)을 사용하지 않는다. markdownlint: [`no-hard-tabs`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md010---hard-tabs)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -55,7 +55,7 @@
   ```
 
 <a name="no-multiple-blanks"></a><a name="1.3"></a>
-- [1.3](#no-multiple-blanks) 두 줄 이상 연속해 빈 줄을 사용하지 않는다. 단, 코드 블록은 예외로 한다. markdownlint: [`no-multiple-blanks`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md012---multiple-consecutive-blank-lines)
+* [1.3](#no-multiple-blanks) 두 줄 이상 연속해 빈 줄을 사용하지 않는다. 단, 코드 블록은 예외로 한다. markdownlint: [`no-multiple-blanks`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md012---multiple-consecutive-blank-lines)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -78,7 +78,7 @@
 ### 제목(Header)
 
 <a name="header-increment"></a><a name="2.1"></a>
-- [2.1](#header-increment) 제목의 수준은 한 번에 한 단계씩 증가한다. markdownlint: [`header-increment`](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md#md001---header-levels-should-only-increment-by-one-level-at-a-time)
+* [2.1](#header-increment) 제목의 수준은 한 번에 한 단계씩 증가한다. markdownlint: [`header-increment`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md001---heading-levels-should-only-increment-by-one-level-at-a-time)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -105,7 +105,7 @@
   ```
 
 <a name="first-header-h1"></a><a name="2.2"></a>
-- [2.2](#first-header-h1) 문서의 첫 번째 제목은 최상위 수준으로 작성한다. markdownlint: [`first-header-h1`](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md#md002---first-header-should-be-a-top-level-header)  
+* [2.2](#first-header-h1) 문서의 첫 번째 제목은 최상위 수준으로 작성한다. markdownlint: [`first-header-h1`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md002---first-heading-should-be-a-top-level-heading)  
 단, 최상위 수준의 제목이 존재하는 문서의 일부로 Markdown이 사용될 때는 예외로 한다.
 
   ```markdown
@@ -123,7 +123,7 @@
   ```
 
 <a name="header-style"></a><a name="2.3"></a>
-- [2.3](#header-style) 제목은 `#`으로 시작하는 [Atx](http://www.aaronsw.com/2002/atx/) 스타일을 따른다. markdownlint: [`header-style`](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md#md003---header-style)
+* [2.3](#header-style) 제목은 `#`으로 시작하는 [Atx](http://www.aaronsw.com/2002/atx/) 스타일을 따른다. markdownlint: [`header-style`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md003---heading-style)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -143,7 +143,7 @@
   ```
 
 <a name="no-missing-space-atx"></a><a name="2.4"></a>
-- [2.4](#no-missing-space-atx) Atx 스타일 제목의 `#` 뒤에 스페이스를 사용한다. markdownlint: [`no-missing-space-atx`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018---no-space-after-hash-on-atx-style-heading)
+* [2.4](#no-missing-space-atx) Atx 스타일 제목의 `#` 뒤에 스페이스를 사용한다. markdownlint: [`no-missing-space-atx`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md018---no-space-after-hash-on-atx-style-heading)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -160,7 +160,7 @@
   ```
 
 <a name="no-multiple-space-atx"></a><a name="2.5"></a>
-- [2.5](#no-multiple-space-atx) Atx 스타일 제목의 `#` 뒤에 여러 개의 스페이스를 사용하지 않는다. markdownlint: [`no-multiple-space-atx`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md019---multiple-spaces-after-hash-on-atx-style-heading)
+* [2.5](#no-multiple-space-atx) Atx 스타일 제목의 `#` 뒤에 여러 개의 스페이스를 사용하지 않는다. markdownlint: [`no-multiple-space-atx`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md019---multiple-spaces-after-hash-on-atx-style-heading)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -177,7 +177,7 @@
   ```
 
 <a name="blanks-around-headers"></a><a name="2.6"></a>
-- [2.6](#blanks-around-headers) 제목 앞뒤에 빈 줄을 사용한다. markdownlint: [`blanks-around-headers`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022---headings-should-be-surrounded-by-blank-lines)  
+* [2.6](#blanks-around-headers) 제목 앞뒤에 빈 줄을 사용한다. markdownlint: [`blanks-around-headers`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md022---headings-should-be-surrounded-by-blank-lines)  
 단, 제목 앞에 HTML 앵커가 존재할 수 있어 markdownlint의 규칙을 적용할 수 없다.
 
   ```markdown
@@ -201,7 +201,7 @@
   ```
 
 <a name="header-start-left"></a><a name="2.7"></a>
-- [2.7](#header-start-left) 제목은 들여쓰기 없이 시작해야 한다. markdownlint: [`header-start-left`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md023---headings-must-start-at-the-beginning-of-the-line)
+* [2.7](#header-start-left) 제목은 들여쓰기 없이 시작해야 한다. markdownlint: [`header-start-left`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md023---headings-must-start-at-the-beginning-of-the-line)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -218,7 +218,7 @@
   ```
 
 <a name="no-duplicate-header"></a><a name="2.8"></a>
-- [2.8](#no-duplicate-header) 모든 제목의 내용은 서로 달라야 한다. markdownlint: [`no-duplicate-header`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md024---multiple-headings-with-the-same-content)
+* [2.8](#no-duplicate-header) 모든 제목의 내용은 서로 달라야 한다. markdownlint: [`no-duplicate-header`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md024---multiple-headings-with-the-same-content)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -235,7 +235,7 @@
   ```
 
 <a name="single-h1"></a><a name="2.9"></a>
-- [2.9](#single-h1) 최상위 수준의 제목은 문서에 단 한 개만 존재한다. markdownlint: [`single-h1`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025---multiple-top-level-headings-in-the-same-document)
+* [2.9](#single-h1) 최상위 수준의 제목은 문서에 단 한 개만 존재한다. markdownlint: [`single-h1`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md025---multiple-top-level-headings-in-the-same-document)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -254,7 +254,7 @@
   ```
 
 <a name="no-trailing-punctuation"></a><a name="2.10"></a>
-- [2.10](#no-trailing-punctuation) 제목은 `.`, `,`, `;`, `:` 등의 구두점으로 끝내지 않는다. markdownlint: [`no-trailing-punctuation`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md026---trailing-punctuation-in-heading)
+* [2.10](#no-trailing-punctuation) 제목은 `.`, `,`, `;`, `:` 등의 구두점으로 끝내지 않는다. markdownlint: [`no-trailing-punctuation`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md026---trailing-punctuation-in-heading)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -272,7 +272,7 @@
 ### 인용 블록(Blockquotes)
 
 <a name="no-multiple-space-blockquote"></a><a name="3.1"></a>
-- [3.1](#no-multiple-space-blockquote) 인용 블록을 나타내는 기호 `>` 뒤에는 한 개의 스페이스를 사용해야 한다. markdownlint: [`no-multiple-space-blockquote`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md027---multiple-spaces-after-blockquote-symbol)
+* [3.1](#no-multiple-space-blockquote) 인용 블록을 나타내는 기호 `>` 뒤에는 한 개의 스페이스를 사용해야 한다. markdownlint: [`no-multiple-space-blockquote`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md027---multiple-spaces-after-blockquote-symbol)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -292,7 +292,7 @@
 ## 목록(List)
 
 <a name="ul-style"></a><a name="4.1"></a>
-- [4.1](#ul-style) 순서 없는 목록은 `*`, `+`, `-`의 순서로 작성한다. markdownlint: [`ul-style`](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md#md004---unordered-list-style)
+* [4.1](#ul-style) 순서 없는 목록은 `*`, `+`, `-`의 순서로 작성한다. markdownlint: [`ul-style`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md004---unordered-list-style)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -314,7 +314,7 @@
   ```
 
 <a name="list-indent"></a><a name="4.2"></a>
-- [4.2](#list-indent) 목록에서 같은 수준의 항목은 같은 크기로 들여쓴다. markdownlint: [`list-indent`](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md#md005---inconsistent-indentation-for-list-items-at-the-same-level)
+* [4.2](#list-indent) 목록에서 같은 수준의 항목은 같은 크기로 들여쓴다. markdownlint: [`list-indent`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md005---inconsistent-indentation-for-list-items-at-the-same-level)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -333,7 +333,7 @@
   ```
 
 <a name="ul-indent"></a><a name="4.3"></a>
-- [4.3](#ul-indent) 순서 없는 목록의 들여쓰기는 상위 수준 항목과 정렬될 수 있도록 두 개의 스페이스로 한다. markdownlint: [`ul-indent`](https://github.com/markdownlint/markdownlint/blob/master/docs/RULES.md#md007---unordered-list-indentation)
+* [4.3](#ul-indent) 순서 없는 목록의 들여쓰기는 상위 수준 항목과 정렬될 수 있도록 두 개의 스페이스로 한다. markdownlint: [`ul-indent`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md007---unordered-list-indentation)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -348,7 +348,7 @@
   ```
 
 <a name="ol-prefix"></a><a name="4.4"></a>
-- [4.4](#ol-prefix) 순서 있는 목록의 항목은 순서와 상관없이 모두 `1.`로 표기한다. markdownlint: [`ol-prefix`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md029---ordered-list-item-prefix)
+* [4.4](#ol-prefix) 순서 있는 목록의 항목은 순서와 상관없이 모두 `1.`로 표기한다. markdownlint: [`ol-prefix`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md029---ordered-list-item-prefix)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -365,7 +365,7 @@
   ```
 
 <a name="list-marker-space"></a><a name="4.5"></a>
-- [4.5](#list-marker-space) `-`, `*`, `+`, `1.` 등 목록의 항목을 나타내는 기호 뒤에는 한 개의 스페이스를 사용해야 한다. markdownlint: [`list-marker-space`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md030---spaces-after-list-markers)
+* [4.5](#list-marker-space) `-`, `*`, `+`, `1.` 등 목록의 항목을 나타내는 기호 뒤에는 한 개의 스페이스를 사용해야 한다. markdownlint: [`list-marker-space`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md030---spaces-after-list-markers)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -388,7 +388,7 @@
   ```
 
 <a name="blanks-around-lists"></a><a name="4.6"></a>
-- [4.6](#blanks-around-lists) 목록 앞뒤에 빈 줄을 사용한다. markdownlint: [`blanks-around-lists`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md032---lists-should-be-surrounded-by-blank-lines)  
+* [4.6](#blanks-around-lists) 목록 앞뒤에 빈 줄을 사용한다. markdownlint: [`blanks-around-lists`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md032---lists-should-be-surrounded-by-blank-lines)  
   단, 목록 앞에 HTML 앵커가 존재할 수 있어 markdownlint의 규칙을 적용할 수 없다.
 
   ```markdown
@@ -421,7 +421,7 @@
 ### 코드 블록(Code Blocks)
 
 <a name="blanks-around-fences"></a><a name="5.1"></a>
-- [5.1](#blanks-around-fences) 코드 블록 앞뒤에 빈 줄을 사용한다. markdownlint: [`blanks-around-fences`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031---fenced-code-blocks-should-be-surrounded-by-blank-lines)
+* [5.1](#blanks-around-fences) 코드 블록 앞뒤에 빈 줄을 사용한다. markdownlint: [`blanks-around-fences`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md031---fenced-code-blocks-should-be-surrounded-by-blank-lines)
 
   ````markdown
   <!-- 잘못된 예 -->
@@ -452,7 +452,7 @@
   ````
 
 <a name="fenced-code-language"></a><a name="5.2"></a>
-- [5.2](#fenced-code-language) 코드 블록을 사용할 때는 포함된 코드의 언어를 명시한다. markdownlint: [`fenced-code-language`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040---fenced-code-blocks-should-have-a-language-specified)
+* [5.2](#fenced-code-language) 코드 블록을 사용할 때는 포함된 코드의 언어를 명시한다. markdownlint: [`fenced-code-language`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md040---fenced-code-blocks-should-have-a-language-specified)
 
   ````markdown
   <!-- 잘못된 예 -->
@@ -476,7 +476,7 @@
 ### 수평선(Horizontal Rules)
 
 <a name="hr-style"></a><a name="6.1"></a>
-- [6.1](#hr-style) 수평선은 `---`으로 표기한다. markdownlint: [`hr-style`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md035---horizontal-rule-style)
+* [6.1](#hr-style) 수평선은 `---`으로 표기한다. markdownlint: [`hr-style`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md035---horizontal-rule-style)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -503,7 +503,7 @@
 ### 링크(Links)
 
 <a name="no-reversed-links"></a><a name="7.1"></a>
-- [7.1](#no-reversed-links) Markdown의 링크 문법을 반대로 쓸 수 없다. markdownlint: [`no-reversed-links`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md011---reversed-link-syntax)
+* [7.1](#no-reversed-links) Markdown의 링크 문법을 반대로 쓸 수 없다. markdownlint: [`no-reversed-links`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md011---reversed-link-syntax)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -516,7 +516,7 @@
   ```
 
 <a name="no-bare-urls"></a><a name="7.2"></a>
-- [7.2](#no-bare-urls) URL은 코드 스팬 없이 본문에 포함할 수 없고, 링크로 변경하고 싶은 경우에는 코드 스팬 대신 `<`와 `>`로 URL을 감싼다. markdownlint: [`no-bare-urls`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md034---bare-url-used)
+* [7.2](#no-bare-urls) URL은 코드 스팬 없이 본문에 포함할 수 없고, 링크로 변경하고 싶은 경우에는 코드 스팬 대신 `<`와 `>`로 URL을 감싼다. markdownlint: [`no-bare-urls`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md034---bare-url-used)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -529,7 +529,7 @@
   ```
 
 <a name="no-space-in-links"></a><a name="7.3"></a>
-- [7.3](#no-space-in-links) 링크를 삽입할 때 링크 텍스트를 나타내는 기호 `[`의 뒤 또는 `]`의 앞에는 스페이스를 사용하지 않는다. markdownlint: [`no-space-in-links`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md039---spaces-inside-link-text)
+* [7.3](#no-space-in-links) 링크를 삽입할 때 링크 텍스트를 나타내는 기호 `[`의 뒤 또는 `]`의 앞에는 스페이스를 사용하지 않는다. markdownlint: [`no-space-in-links`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md039---spaces-inside-link-text)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -542,7 +542,7 @@
   ```
 
 <a name="no-empty-links"></a><a name="7.3"></a>
-- [7.3](#no-empty-links) 연결된 대상이 없는 빈 링크는 사용하지 않는다. markdownlint: [`no-empty-links`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md042---no-empty-links)
+* [7.3](#no-empty-links) 연결된 대상이 없는 빈 링크는 사용하지 않는다. markdownlint: [`no-empty-links`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md042---no-empty-links)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -562,7 +562,7 @@
 ### 강조(Emphasis)
 
 <a name="no-space-in-emphasis"></a><a name="8.1"></a>
-- [8.1](#no-space-in-emphasis) `**`, `*`, `__`, `_` 등 볼드 또는 이탤릭 등 강조를 위한 기호 사이에 스페이스를 사용하지 않는다. markdownlint: [`no-space-in-emphasis`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md037---spaces-inside-emphasis-markers)
+* [8.1](#no-space-in-emphasis) `**`, `*`, `__`, `_` 등 볼드 또는 이탤릭 등 강조를 위한 기호 사이에 스페이스를 사용하지 않는다. markdownlint: [`no-space-in-emphasis`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md037---spaces-inside-emphasis-markers)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -592,7 +592,7 @@
 ### 코드 스팬(Code Span)
 
 <a name="no-space-in-code"></a><a name="9.1"></a>
-- [9.1](#no-space-in-code) 코드 스팬에 사용하는 ````` 기호 사이에 스페이스를 사용하지 않는다. markdownlint: [`no-space-in-code`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md038---spaces-inside-code-span-elements)
+* [9.1](#no-space-in-code) 코드 스팬에 사용하는 ````` 기호 사이에 스페이스를 사용하지 않는다. markdownlint: [`no-space-in-code`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md038---spaces-inside-code-span-elements)
 
   ```markdown
   <!-- 잘못된 예 -->
@@ -614,7 +614,7 @@
 ## 이미지(Images)
 
 <a name="no-alt-text"></a><a name="10.1"></a>
-- [10.1](#no-alt-text) 이미지를 삽입하는 경우 이를 대체하기 위한 텍스트를 함께 명시한다. markdownlint: [`no-alt-text`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md045---images-should-have-alternate-text-alt-text)
+* [10.1](#no-alt-text) 이미지를 삽입하는 경우 이를 대체하기 위한 텍스트를 함께 명시한다. markdownlint: [`no-alt-text`](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md#md045---images-should-have-alternate-text-alt-text)
 
   ```markdown
   <!-- 잘못된 예 -->
