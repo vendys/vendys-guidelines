@@ -1,0 +1,25 @@
+{
+  "name": "@vendys/commitlint-config",
+  "description": "벤디스 가이드라인 기반의 commitlint 설정",
+  "version": "0.0.0",
+  "author": "Vendys Inc.",
+  "bugs": {
+    "url": "https://github.com/vendys/vendys-guidelines/issues"
+  },
+  "devDependencies": {
+    "markdownlint-cli": "^0.9.0"
+  },
+  "homepage": "https://github.com/vendys/vendys-guidelines/blob/master/commit-messages/README.md",
+  "keywords": [
+    "config",
+    "commitlint",
+    "commitlint-config",
+    "styleguide"
+  ],
+  "license": "CC-BY-4.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vendys/vendys-guidelines"
+  }
+}
