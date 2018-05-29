@@ -1,0 +1,37 @@
+{
+  "name": "eslint-config-zlatjs2",
+  "version": "1.0.0",
+  "description": "zlatjs eslint config example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zlatjs2/eslint-config-zlatjs2.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "javascript",
+    "react",
+    "styleguide"
+  ],
+  "author": "zlatjs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zlatjs2/eslint-config-zlatjs2/issues"
+  },
+  "homepage": "https://github.com/zlatjs2/eslint-config-zlatjs2#readme",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "eslint": "^4.18.2",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-react-app": "^2.1.0"
+  }
+}
