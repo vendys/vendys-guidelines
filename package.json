@@ -39,7 +39,7 @@
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "distclean": "rimraf node_modules",
     "precommit": "lint-staged",
-    "release": "lerna exec --bail=false -- 'can-npm-publish && npm publish'",
+    "release": "lerna exec --bail=false -- 'can-npm-publish && npm publish --access public'",
     "test": "lerna run test --parallel"
   },
   "workspaces": [
