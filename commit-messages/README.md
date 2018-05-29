@@ -266,7 +266,7 @@
   
   문서의 가독성을 높이기 위해 제목의 스타일을 변경한다.
   
-  Closes ISSUE-1
+  ISSUE-1 #resolve
   ```
 
 <a name="footer-breaking-changes"></a><a name="5.2"></a>
@@ -279,7 +279,7 @@
 
   BREAKING CHANGE: 기존과 목차가 달라지고, 섹션으로 가기 위한 링크가 변경된다.
 
-  Closes ISSUE-1
+  ISSUE-1 #resolve
   ```
 
 **[⬆ 맨 위로](#table-of-contents)**
