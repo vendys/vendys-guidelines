@@ -1,5 +1,7 @@
 # Commit Message Style Guide
 
+[![npm version](https://badge.fury.io/js/%40vendys%2Fcommitlint-config.svg)](https://badge.fury.io/js/%40vendys%2Fcommitlint-config)
+
 이 가이드는 벤디스에서 VCS (Version Control System)를 사용하며 변경이력을 작성할 때 기준이 되는 스타일을 설명한다.
 
 코드를 비교하는 `diff`는 변경된 코드가 무엇인지만 보여줄 뿐 변경이 일어난 배경(context)을 설명하는 것은 커밋 메시지(commit message)다. 그리고 커밋 메시지를 더 쉽게 읽을 수 있도록 작성할 때, 이를 통해 더 나은 정보를 제공할 수 있다.

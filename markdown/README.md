@@ -1,5 +1,7 @@
 # Markdown Style Guide
 
+[![npm version](https://badge.fury.io/js/%40vendys%2Fmarkdownlint-config.svg)](https://badge.fury.io/js/%40vendys%2Fmarkdownlint-config)
+
 이 가이드는 벤디스에서 [Markdown](https://daringfireball.net/projects/markdown/) 또는 [CommonMark](http://commonmark.org/)로 문서를 작성할 때 기준이 되는 스타일을 설명한다.
 
 > **노트**: 이 가이드는 [markdownlint](https://github.com/DavidAnson/markdownlint)를 사용한다고 가정한다.
