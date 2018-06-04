@@ -1,7 +1,5 @@
 # Java Code Style Guide
 
-[![npm version](https://badge.fury.io/js/%40vendys%2Fmarkdownlint-config.svg)](https://badge.fury.io/js/%40vendys%2Fmarkdownlint-config)
-
 이 가이드는 벤디스에서 Java로 구성된 코드를 작성할 때 기준이 되는 스타일을 설명한다.
 
 > **노트**: 이 가이드 기준은 같은 path의 checkstyle.xml와 일치시킨다.
@@ -10,7 +8,77 @@
 
 1. [소개](#introduction)
    1. [용어정리](#terms)
-   1. [Guide node](#guide-notes)
+   1. [Guide notes](#guide-notes)
+1. [Source file basics](#source-file-basics)
+   1. [파일 명(File name)](#file-name)
+   1. [File encoding: UTF-8](#file-encoding)
+   1. [특수문자](#special-character)
+      1. [공백 문자](#empty-space)
+      1. [Special escape sequences](#special-escape-sequences)
+      1. [Non-ASCII characters](#non-ascii-characters)
+1. [소스 파일 구조](#source-file-structure)
+   1. [License 또는 copyright](#license-copyright)
+   1. [패키지 - Package](#package)
+   1. [임포트 - Import](#import)
+      1. [* 를 사용하지 말하주세요](#import-asterisk)
+      1. [줄바꿈](#line-alignment)
+      1. [순서 및 간격](#alignment-gap)
+      1. [Static import 를 사용하지 마세요](#static-import)
+   1. [Class 정의](#class-declaration)
+      1. [Exactly one top-level class declaration](#one-top-class)
+      1. [Class의 내용 작성 순서](#class-contents-alignment)
+         1. [Overloads: 나누지 마세요](#class-declaration-overloads)
+1. [양식: Formatting](#formatting)
+   1. [중괄호 (Braces, { })](#formatting-braces)
+      1. [중괄호 사용](#formatting-braces-usage)
+      1. [비어있지 않은 블록들: K & R style를 사용해요 ~](#formatting-braces-knr)
+      1. [공백블럭 : 간결해 보일 수 있어요](#formatting-braces-empty-block)
+   1. [블럭 들여쓰기: +4 Space](#formatting-indentation)
+   1. [한 라인에는 한 구문 (One statement per line)](formatting-statement)
+   1. [Column 제한: 130 (Column limit: 130)](#formatting-column)
+   1. [줄바꿈 (Line-wrapping)](#formatting-line-wrapping)
+      1. [어디서 줄바꿈 할까요?](#formatting-line-wrapping-usage)
+      1. [개행은 최소 +4 Space 이상씩](#formatting-line-wrapping-indentation)
+   1. [공백](#formatting-empty-space)
+      1. [빈 줄: Blank-line](#formatting-empty-space-black-line)
+      1. [공백문자](#formatting-empty-space-character)
+      1. [수평 정렬](#formatting-empty-space-horizontal)
+   1. [연산구문에 괄호 삽입: 추천!](#formatting-parenthesis)
+   1. [구체적인 생성자](#formatting-constructor)
+      1. [Enum classes](#formatting-constructor-enum)
+      1. [변수 선언](#formatting-constructor-variables)
+         1. [하나의 선언에 하나의 변수](#formatting-constructor-variables-per-declaration)
+         1. [필요시 선언](#formatting-constructor-variables-need)
+      1. [배열](#formatting-constructor-array)
+         1. [배열 초기화: 블럭 스타일 가능](#formatting-constructor-array-style)
+         1. [C언어 스타일로 배열선언하지 않는다 No C-style array declarations](#formatting-constructor-array-c-style)
+      1. [Switch 구문](#formatting-constructor-switch)
+         1. [들여쓰기](#formatting-constructor-switch-indentation)
+         1. [실패 표기: commented](#formatting-constructor-switch-commented)
+         1. [default case의 표현 The default case is present](#formatting-constructor-switch-default-case)
+      1. [Annotations](#formatting-constructor-annotations)
+      1. [Comments](#formatting-constructor-comments)
+         1. [블럭 주석 스타일](#formatting-constructor-comments-block)
+      1. [접근제어자](#formatting-constructor-access-modifier)
+      1. [숫자](#formatting-constructor-number)
+1. [이름짓기: Naming](#naming)
+   1. [식별자 이름의 짓기](#naming-name)
+   1. [식별자 타입 규칙](#naming-types)
+      1. [Package 명](#naming-types-package)
+      1. [Class 명](#naming-types-class)
+      1. [Method 명](#naming-types-method)
+      1. [Constant(상수) 명](#naming-types-constant)
+      1. [Non-constant field 명](#naming-types-non-constant)
+      1. [Parameter 명](#naming-types-parameter)
+      1. [Local variable 명](#naming-types-local-variable)
+      1. [Type variable 명](#naming-types-type-variable))
+   1. [Camel case: 정의](#naming-camel)
+1. [Programming Practices](#practices)
+   1. [@Override: 항상 사용하세요](#practices-override)
+   1. [예와처리: Caught exceptions: 제발 무시하지 마세요](#practices-excaption)
+   1. [정적 멤버: Static members: class 명시하기](#practices-static)
+   1. [Finalizers: 그냥 쓰지 마세요](#practices-finalizers)
+1. [Javadoc](#javadoc)
 
 ## 배경
 
@@ -20,7 +88,7 @@
 ```
 
 <a name="introduction"></a>
-## [1.](#introduction) 소개(Introduction)
+## [1](#introduction) 소개(Introduction)
 
 ```markdown
 벤디스 Java code style 을 정의하기 위한 문서, 이 코드 스타일은 개발자간의 협의를 통해 변경 발전시키며,
@@ -157,7 +225,7 @@ import 문은 줄바꿈하지 마세요. Section 4.4의 규칙에 적용되지 �
 Nested class는 괜찮습니다 :)
 
 <a name="class-contents-alignment"></a>
-#### [3.4.2](#class-conetnets-alignment) Class의 내용 작성 순서
+#### [3.4.2](#class-contents-alignment) Class의 내용 작성 순서
 
 1. static fields 변수
 1. normal fields 변수
@@ -370,7 +438,7 @@ Section 4.6.3 처럼 이전 라인과 기준이 맞도록 수평정렬 해주세
 빈 줄과, 공백문자를 사용하는 규칙을 정의해 Boa yo.
 
 <a name="formatting-empty-space-black-line"></a>
-#### [4.6.1](#formatting-empty-space-black-line) 빈 줄:  Blank-line
+#### [4.6.1](#formatting-empty-space-black-line) 빈 줄: Blank-line
 
 Blank-line 을 넣는 기준은 아래와 같아요
 
