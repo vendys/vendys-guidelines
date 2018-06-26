@@ -3,6 +3,7 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "0.1.0",
+  "registry": "https://registry.npmjs.org/",
   "command": {
     "publish": {
       "message": "build(release): %s 배포"
