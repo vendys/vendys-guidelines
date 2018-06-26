@@ -37,13 +37,14 @@
   "scripts": {
     "bump": "lerna publish --skip-npm",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "distclean": "rimraf node_modules",
+    "distclean": "rimraf node_modules changelog/tmp",
     "precommit": "lint-staged",
     "release": "lerna exec --bail=false -- 'can-npm-publish && npm publish --access public'",
     "test": "lerna run test --parallel"
   },
   "workspaces": [
     "commit-messages",
+    "changelog",
     "markdown"
   ]
 }

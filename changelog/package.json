@@ -1,0 +1,46 @@
+{
+  "name": "@vendys/conventional-changelog-preset",
+  "description": "벤디스 가이드라인 기반의 conventional-changelog 프리셋",
+  "version": "0.0.0",
+  "author": "Vendys Inc.",
+  "bugs": {
+    "url": "https://github.com/vendys/vendys-guidelines/issues"
+  },
+  "devDependencies": {
+    "better-than-before": "^1.0.0",
+    "chai": "^4.1.2",
+    "conventional-changelog-core": "^3.0.0",
+    "git-dummy-commit": "^1.3.0",
+    "mocha": "^5.2.0",
+    "shelljs": "^0.8.2",
+    "through2": "^2.0.3"
+  },
+  "homepage": "https://github.com/vendys/vendys-guidelines/blob/master/changelog/README.md",
+  "keywords": [
+    "preset",
+    "conventional-changelog",
+    "commitlint-config",
+    "styleguide"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vendys/vendys-guidelines"
+  },
+  "dependencies": {
+    "compare-func": "^1.3.2",
+    "q": "^1.5.1"
+  },
+  "files": [
+    "conventional-changelog.js",
+    "conventional-recommended-bump.js",
+    "index.js",
+    "parser-opts.js",
+    "writer-opts.js",
+    "templates"
+  ],
+  "scripts": {
+    "test": "mocha --timeout 30000"
+  }
+}
