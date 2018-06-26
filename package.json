@@ -35,7 +35,7 @@
     "url": "https://github.com/vendys/vendys-guidelines"
   },
   "scripts": {
-    "bump": "lerna publish --skip-npm",
+    "bump": "lerna publish --skip-npm --conventional-commits --changelog-preset ./changelog",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "distclean": "rimraf node_modules changelog/tmp",
     "precommit": "lint-staged",
