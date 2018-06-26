@@ -1,4 +1,13 @@
 module.exports = {
+  parserPreset: {
+    parserOpts: {
+      issuePrefixes: [
+        "#",
+        "gh-",
+        "PROD-"
+      ]
+    }
+  },
   // 명확한 설정을 위해 가능한 모든 규칙을 나열(http://marionebl.github.io/commitlint/#/reference-rules)
   rules: {
     // `body` 앞에 빈 줄 사용
