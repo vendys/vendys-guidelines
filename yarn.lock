@@ -2261,28 +2261,9 @@ markdownlint-cli@^0.10.0:
     markdownlint "~0.10.0"
     rc "~1.2.7"
 
-markdownlint-cli@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/markdownlint-cli/-/markdownlint-cli-0.9.0.tgz#241a62e98ba5fd1594f57adb5823bc6bf83e95e2"
-  dependencies:
-    commander "~2.9.0"
-    deep-extend "~0.5.1"
-    get-stdin "~5.0.1"
-    glob "~7.0.3"
-    lodash.differencewith "~4.5.0"
-    lodash.flatten "~4.4.0"
-    markdownlint "~0.9.0"
-    rc "~1.2.7"
-
 markdownlint@~0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/markdownlint/-/markdownlint-0.10.0.tgz#ee941ee943f78ff6adbc1ff0fad49365e600b664"
-  dependencies:
-    markdown-it "8.4.1"
-
-markdownlint@~0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/markdownlint/-/markdownlint-0.9.0.tgz#f2500856b6c2a1450b919dcb4671d4116fb1f0bf"
   dependencies:
     markdown-it "8.4.1"
 
