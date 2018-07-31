@@ -1,29 +1,26 @@
 {
-  "name": "@vendys/commitlint-config",
-  "description": "벤디스 가이드라인 기반의 commitlint 설정",
+  "name": "@vendys/checkstyle-config",
+  "description": "벤디스 가이드라인 기반의 checkstyle 설정",
   "version": "0.1.0",
   "author": "Vendys Inc.",
   "bugs": {
     "url": "https://github.com/vendys/vendys-guidelines/issues"
   },
   "devDependencies": {
-    "can-npm-publish": "^1.2.0",
     "markdownlint-cli": "^0.10.0"
   },
-  "homepage": "https://github.com/vendys/vendys-guidelines/blob/master/commit-messages/README.md",
+  "homepage": "https://github.com/vendys/vendys-guidelines/blob/master/java/README.md",
   "keywords": [
     "config",
-    "commitlint",
-    "commitlint-config",
+    "checkstyle",
     "styleguide"
   ],
   "license": "CC-BY-4.0",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/vendys/vendys-guidelines"
   },
   "scripts": {
-    "release": "can-npm-publish && npm publish --access public"
+    "release": "exit 0"
   }
 }
