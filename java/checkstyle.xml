@@ -3,50 +3,258 @@
           "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
           "http://checkstyle.sourceforge.net/dtds/configuration_1_3.dtd">
 
-<!--
-    Checkstyle configuration that checks the Vendys coding conventions from Google Java Style
-    that can be found at https://google.github.io/styleguide/javaguide.html.
- -->
-
+<!-- http://checkstyle.sourceforge.net/config.html#Checker -->
 <module name = "Checker">
     <property name="charset" value="UTF-8"/>
-
+    <property name="fileExtensions" value="java, properties"/>
     <property name="severity" value="error"/>
 
-    <property name="fileExtensions" value="java, properties"/>
-    <!-- Checks for whitespace                               -->
-    <!-- See http://checkstyle.sf.net/config_whitespace.html -->
+    <!-- 탭 문자를 사용하지 않음 -->
+    <!-- http://checkstyle.sourceforge.net/config_whitespace.html#FileTabCharacter -->
     <module name="FileTabCharacter">
         <property name="eachLine" value="true"/>
     </module>
 
+    <!-- http://checkstyle.sourceforge.net/config.html#TreeWalker -->
     <module name="TreeWalker">
-        <module name="OuterTypeFilename"/>
-        <module name="IllegalTokenText">
-            <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
-            <property name="format" value="\\u00(09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)"/>
-            <property name="message" value="Consider using special escape sequence instead of octal value or Unicode escaped value."/>
+        <property name="tabWidth" value="4"/>
+
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#AbbreviationAsWordInName -->
+        <module name="AbbreviationAsWordInName">
+            <property name="ignoreFinal" value="false"/>
+            <property name="allowedAbbreviationLength" value="1"/>
         </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_annotation.html#AnnotationLocation -->
+        <module name="AnnotationLocation">
+            <property name="id" value="AnnotationLocationVariables"/>
+            <property name="tokens" value="VARIABLE_DEF"/>
+            <property name="allowSamelineMultipleAnnotations" value="true"/>
+        </module>
+        <module name="AnnotationLocation">
+            <property name="id" value="AnnotationLocationMostCases"/>
+            <property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF"/>
+        </module>
+
+        <!-- C언어 스타일 배열 선언 금지 -->
+        <!-- http://checkstyle.sourceforge.net/config_misc.html#ArrayTypeStyle -->
+        <module name="ArrayTypeStyle"/>
+
+        <!-- 비ASCII 문자는 실제 유니코드 문자 또는 그에 해당하는 유니코드 이스케이프를 사용 -->
+        <!-- http://checkstyle.sourceforge.net/config_misc.html#AvoidEscapedUnicodeCharacters -->
         <module name="AvoidEscapedUnicodeCharacters">
             <property name="allowEscapesForControlCharacters" value="true"/>
             <property name="allowByTailComment" value="true"/>
             <property name="allowNonPrintableEscapes" value="true"/>
         </module>
+
+        <!-- 정적 임포트 사용은 금지되나 테스트 작성은 예외로 함 -->
+        <!-- http://checkstyle.sourceforge.net/config_imports.html#AvoidStarImport -->
+        <module name="AvoidStarImport">
+            <property name="allowStaticMemberImports" value="true"/>
+        </module>
+
+        <!-- 파라미터명은 lowerCamelCase로 작성 -->
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#CatchParameterName -->
+        <module name="CatchParameterName">
+            <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
+            <message key="name.invalidPattern"
+             value="Catch 파리미터명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#ClassTypeParameterName -->
+        <module name="ClassTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]*)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+            <message key="name.invalidPattern" value="클래스 타입명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- 블록 주석은 주변 코드와 같은 수준으로 들여쓰기 -->
+        <!-- http://checkstyle.sourceforge.net/config_misc.html#CommentsIndentation -->
+        <module name="CommentsIndentation"/>
+
+        <!-- http://checkstyle.sourceforge.net/config_imports.html#CustomImportOrder -->
+        <module name="CustomImportOrder">
+            <property name="separateLineBetweenGroups" value="true"/>
+            <property name="standardPackageRegExp" value="^(java|javax|org.springframework)\."/>
+            <property name="specialImportsRegExp" value="^(com.vendys)\."/>
+            <property name="customImportOrderRules" value="STATIC###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS"/>
+        </module>
+
+        <!-- 빈 블록 또는 블록 같은 요소는 K & R 스타일로 작성할 수 있다. -->
+        <!-- http://checkstyle.sourceforge.net/config_blocks.html#EmptyBlock -->
+        <module name="EmptyBlock">
+            <property name="option" value="text"/>
+            <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
+        </module>
+
+        <!-- 예외 처리: 무시하지 않음 -->
+        <!-- http://checkstyle.sourceforge.net/config_blocks.html#EmptyCatchBlock -->
+        <module name="EmptyCatchBlock">
+            <property name="exceptionVariableName" value="expected"/>
+        </module>
+
+        <!-- 두 개의 연속된 필드 사이(그 사이 다른 코드는 없음) 빈 줄은 선택적 -->
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#EmptyLineSeparator -->
+        <module name="EmptyLineSeparator">
+            <property name="allowNoEmptyLineBetweenFields" value="true"/>
+        </module>
+
+        <!-- Fall-through: 주석 추가 -->
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#FallThrough -->
+        <module name="FallThrough"/>
+
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#GenericWhitespace -->
+        <module name="GenericWhitespace">
+            <message key="ws.followed" value="GenericWhitespace ''{0}'' 뒤에 공백이 있다."/>
+             <message key="ws.preceded" value="GenericWhitespace ''{0}'' 앞에 공백이 있다."/>
+             <message key="ws.illegalFollow" value="GenericWhitespace ''{0}'' 뒤에 공백이 있어야 한다."/>
+             <message key="ws.notPreceded" value="GenericWhitespace ''{0}'' 앞에 공백이 없다."/>
+        </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#IllegalTokenText -->
+        <module name="IllegalTokenText">
+            <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
+            <property name="format" value="\\u00(09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)"/>
+            <property name="message" value="8진수 또는 유니코드 이스케이프가 아니라 특수 이스케이프 시퀀스 사용을 고려하라."/>
+        </module>
+
+        <!-- 들여쓰기는 4 스페이스를 기본 단위로 함 -->
+        <!-- http://checkstyle.sourceforge.net/config_misc.html#Indentation -->
+        <module name="Indentation">
+            <property name="basicOffset" value="4"/>
+            <property name="braceAdjustment" value="0"/>
+            <property name="caseIndent" value="4"/>
+            <property name="throwsIndent" value="4"/>
+            <property name="lineWrappingIndentation" value="8"/>
+            <property name="arrayInitIndent" value="4"/>
+        </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#InterfaceTypeParameterName -->
+        <module name="InterfaceTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]*)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+            <message key="name.invalidPattern" value="인터페이스 타입명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- K & R 스타일 -->
+        <!-- http://checkstyle.sourceforge.net/config_blocks.html#LeftCurly -->
+        <module name="LeftCurly"/>
+
+        <!-- Java 코드는 130자의 열 제한을 가짐 -->
+        <!-- http://checkstyle.sourceforge.net/config_sizes.html#LineLength -->
         <module name="LineLength">
             <property name="max" value="130"/>
             <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://|^[ ]*@.*"/>
         </module>
-        <module name="AvoidStarImport">
-            <property name="allowStaticMemberImports" value="true"/>
+
+        <!-- 지역 변수명은 lowerCamelCase로 작성 -->
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#LocalVariableName -->
+        <module name="LocalVariableName">
+            <property name="tokens" value="VARIABLE_DEF"/>
+            <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
+            <message key="name.invalidPattern" value="지역 변수명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
         </module>
-        <module name="OneTopLevelClass"/>
-        <module name="NoLineWrap"/>
-        <module name="EmptyBlock">
-            <property name="option" value="TEXT"/>
-            <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
+
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#MethodTypeParameterName -->
+        <module name="MethodTypeParameterName">
+            <property name="format" value="(^[A-Z][0-9]*)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
+            <message key="name.invalidPattern" value="메소드 타입명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
         </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#MethodParamPad -->
+        <module name="MethodParamPad"/>
+
+        <!-- 상수가 아닌 필드명(static 또는 그 외)은 lowerCamelCase로 작성 -->
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#MemberName -->
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
+            <message key="name.invalidPattern" value="멤버명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- 메소드명은 lowerCamelCase로 작성 -->
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#MethodName -->
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9_]*$"/>
+            <message key="name.invalidPattern" value="메소드명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- Switch 문장은 default 문장 그룹을 가짐 -->
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#MissingSwitchDefault -->
+        <module name="MissingSwitchDefault"/>
+
+        <!-- 클래스 및 멤버 제어자는 존재하는 경우 Java 언어 명세서에서 추천하는 순서에 따라 나타남 -->
+        <!-- http://checkstyle.sourceforge.net/config_modifier.html#ModifierOrder -->
+        <module name="ModifierOrder"/>
+
+        <!-- 선언 당 하나의 변수 -->
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#MultipleVariableDeclarations -->
+        <module name="MultipleVariableDeclarations"/>
+
+        <!-- 항상 중괄호 사용 -->
+        <!-- http://checkstyle.sourceforge.net/config_blocks.html#NeedBraces -->
         <module name="NeedBraces"/>
-        <module name="LeftCurly"/>
+
+        <!-- 소멸자: 사용 안 함 -->
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#NoFinalizer -->
+        <module name="NoFinalizer"/>
+
+        <!-- 패키지 및 임포트 문장은 줄 바꿈 없이 작성 -->
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#NoLineWrap -->
+        <module name="NoLineWrap">
+            <property name="tokens" value="PACKAGE_DEF, IMPORT, STATIC_IMPORT"/>
+        </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#NoWhitespaceBefore -->
+        <module name="NoWhitespaceBefore">
+            <property name="tokens" value="COMMA, SEMI, POST_INC, POST_DEC, DOT, ELLIPSIS, METHOD_REF"/>
+            <property name="allowLineBreaks" value="true"/>
+        </module>
+
+        <!-- 한 줄에 하나의 문장 -->
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#OneStatementPerLine -->
+        <module name="OneStatementPerLine"/>
+
+        <!-- 정확히 한 개의 최상위 클래스 선언 -->
+        <!-- http://checkstyle.sourceforge.net/config_design.html#OneTopLevelClass -->
+        <module name="OneTopLevelClass"/>
+
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#OperatorWrap -->
+        <module name="OperatorWrap">
+            <property name="option" value="nl"/>
+            <property name="tokens" value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR, METHOD_REF "/>
+        </module>
+
+        <!-- 소스 파일명은 포함된 최상위 클래스의 이름과 같음 -->
+        <!-- http://checkstyle.sourceforge.net/config_misc.html#OuterTypeFilename -->
+        <module name="OuterTypeFilename"/>
+
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#OverloadMethodsDeclarationOrder -->
+        <module name="OverloadMethodsDeclarationOrder"/>
+
+        <!-- 패키지명은 모두 소문자로 지정하며, 연속된 단어는 밑줄 없이 단순히 붙여 씀 -->
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#PackageName -->
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+            <message key="name.invalidPattern" value="패키지명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_sizes.html#ParameterNumber -->
+        <module name="ParameterNumber">
+            <property name="max" value="20"/>
+            <property name="ignoreOverriddenMethods" value="true"/>
+        </module>
+
+        <!-- 파라미터명은 lowerCamelCase로 작성 -->
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#ParameterName -->
+        <module name="ParameterName">
+            <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
+            <message key="name.invalidPattern" value="파라미터명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#ParenPad -->
+        <module name="ParenPad"/>
+
+        <!-- K & R 스타일 -->
+        <!-- http://checkstyle.sourceforge.net/config_blocks.html#RightCurly -->
         <module name="RightCurly">
             <property name="id" value="RightCurlySame"/>
             <property name="tokens" value="LITERAL_TRY, LITERAL_CATCH, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_DO"/>
@@ -56,185 +264,63 @@
             <property name="option" value="alone"/>
             <property name="tokens" value="CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, STATIC_INIT, INSTANCE_INIT"/>
         </module>
+
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#SeparatorWrap -->
+        <!-- 점 구분자(.)에서 줄 바꿈을 하는 경우 심볼 앞에서 줄 바꿈을 함 -->
+        <module name="SeparatorWrap">
+            <property name="id" value="SeparatorWrapDot"/>
+            <property name="option" value="nl"/>
+            <property name="tokens" value="DOT"/>
+        </module>
+        <!-- 쉼표(,)는 앞에 오는 토큰과 붙임 -->
+        <module name="SeparatorWrap">
+            <property name="id" value="SeparatorWrapComma"/>
+            <property name="option" value="eol"/>
+            <property name="tokens" value="COMMA"/>
+        </module>
+        <module name="SeparatorWrap">
+            <!-- ARRAY_DECLARATOR is EOL until https://github.com/google/styleguide/issues/258 -->
+            <property name="id" value="SeparatorWrapArrayDeclarator"/>
+            <property name="option" value="eol"/>
+            <property name="tokens" value="ARRAY_DECLARATOR"/>
+        </module>
+        <module name="SeparatorWrap">
+            <!-- ELLIPSIS is EOL until https://github.com/google/styleguide/issues/259 -->
+            <property name="id" value="SeparatorWrapEllipsis"/>
+            <property name="option" value="eol"/>
+            <property name="tokens" value="ELLIPSIS"/>
+        </module>
+        <!-- 메소드 또는 생성자 이름은 뒤에 오는 여는 괄호(()와 붙임 -->
+        <module name="SeparatorWrap">
+            <property name="id" value="SeparatorWrapMethodRef"/>
+            <property name="option" value="nl"/>
+            <property name="tokens" value="METHOD_REF"/>
+        </module>
+
+        <!-- 클래스명은 UpperCamelCase로 작성 -->
+        <!-- http://checkstyle.sourceforge.net/config_naming.html#TypeName -->
+        <module name="TypeName">
+            <message key="name.invalidPattern" value="타입명 ''{0}''은(는) 반드시 패턴 ''{1}''과 일치해야 한다."/>
+        </module>
+
+        <!-- long 타입의 정수 리터럴은 대문자 L을 접미어로 사용 -->
+        <!-- http://checkstyle.sourceforge.net/config_misc.html#UpperEll -->
+        <module name="UpperEll"/>
+
+        <!-- http://checkstyle.sourceforge.net/config_coding.html#VariableDeclarationUsageDistance -->
+        <module name="VariableDeclarationUsageDistance" >
+            <property name="allowedDistance" value="10"/>
+        </module>
+
+        <!-- 빈 블록: 간결하게 표현 가능 -->
+        <!-- http://checkstyle.sourceforge.net/config_whitespace.html#WhitespaceAround -->
         <module name="WhitespaceAround">
             <property name="allowEmptyConstructors" value="true"/>
             <property name="allowEmptyMethods" value="true"/>
             <property name="allowEmptyTypes" value="true"/>
             <property name="allowEmptyLoops" value="true"/>
-            <message key="ws.notFollowed"
-             value="WhitespaceAround: ''{0}'' is not followed by whitespace. Empty blocks may only be represented as '{}' when not part of a multi-block statement (4.1.3)"/>
-             <message key="ws.notPreceded"
-             value="WhitespaceAround: ''{0}'' is not preceded with whitespace."/>
+            <message key="ws.notFollowed" value="WhitespaceAround: ''{0}'' 뒤에 공백이 없다. 빈 블록은 다중 블록 문장의 일부가 아닐 때만 '{}'처럼 표현할 수 있다."/>
+            <message key="ws.notPreceded" value="WhitespaceAround: ''{0}'' 앞에 공백이 없다."/>
         </module>
-        <module name="OneStatementPerLine"/>
-        <module name="MultipleVariableDeclarations"/>
-        <module name="ArrayTypeStyle"/>
-        <module name="MissingSwitchDefault"/>
-        <module name="FallThrough"/>
-        <module name="UpperEll"/>
-        <module name="ModifierOrder"/>
-        <module name="EmptyLineSeparator">
-            <property name="allowNoEmptyLineBetweenFields" value="true"/>
-        </module>
-        <module name="SeparatorWrap">
-            <property name="id" value="SeparatorWrapDot"/>
-            <property name="tokens" value="DOT"/>
-            <property name="option" value="nl"/>
-        </module>
-        <module name="SeparatorWrap">
-            <property name="id" value="SeparatorWrapComma"/>
-            <property name="tokens" value="COMMA"/>
-            <property name="option" value="EOL"/>
-        </module>
-        <module name="SeparatorWrap">
-            <!-- ELLIPSIS is EOL until https://github.com/google/styleguide/issues/258 -->
-            <property name="id" value="SeparatorWrapEllipsis"/>
-            <property name="tokens" value="ELLIPSIS"/>
-            <property name="option" value="EOL"/>
-        </module>
-        <module name="SeparatorWrap">
-            <!-- ARRAY_DECLARATOR is EOL until https://github.com/google/styleguide/issues/259 -->
-            <property name="id" value="SeparatorWrapArrayDeclarator"/>
-            <property name="tokens" value="ARRAY_DECLARATOR"/>
-            <property name="option" value="EOL"/>
-        </module>
-        <module name="SeparatorWrap">
-            <property name="id" value="SeparatorWrapMethodRef"/>
-            <property name="tokens" value="METHOD_REF"/>
-            <property name="option" value="nl"/>
-        </module>
-        <module name="PackageName">
-            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
-            <message key="name.invalidPattern"
-             value="Package name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="TypeName">
-            <message key="name.invalidPattern"
-             value="Type name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="MemberName">
-            <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
-            <message key="name.invalidPattern"
-             value="Member name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="ParameterName">
-            <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
-            <message key="name.invalidPattern"
-             value="Parameter name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="CatchParameterName">
-            <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
-            <message key="name.invalidPattern"
-             value="Catch parameter name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="LocalVariableName">
-            <property name="tokens" value="VARIABLE_DEF"/>
-            <property name="format" value="^[a-z]([a-z0-9][a-zA-Z0-9]*)?$"/>
-            <message key="name.invalidPattern"
-             value="Local variable name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="ClassTypeParameterName">
-            <property name="format" value="(^[A-Z][0-9]*)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
-            <message key="name.invalidPattern"
-             value="Class type name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="MethodTypeParameterName">
-            <property name="format" value="(^[A-Z][0-9]*)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
-            <message key="name.invalidPattern"
-             value="Method type name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="InterfaceTypeParameterName">
-            <property name="format" value="(^[A-Z][0-9]*)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
-            <message key="name.invalidPattern"
-             value="Interface type name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="NoFinalizer"/>
-        <module name="GenericWhitespace">
-            <message key="ws.followed"
-             value="GenericWhitespace ''{0}'' is followed by whitespace."/>
-             <message key="ws.preceded"
-             value="GenericWhitespace ''{0}'' is preceded with whitespace."/>
-             <message key="ws.illegalFollow"
-             value="GenericWhitespace ''{0}'' should followed by whitespace."/>
-             <message key="ws.notPreceded"
-             value="GenericWhitespace ''{0}'' is not preceded with whitespace."/>
-        </module>
-        <module name="Indentation">
-            <property name="basicOffset" value="4"/>
-            <property name="braceAdjustment" value="0"/>
-            <property name="caseIndent" value="4"/>
-            <property name="throwsIndent" value="4"/>
-            <property name="lineWrappingIndentation" value="8"/>
-            <property name="arrayInitIndent" value="4"/>
-        </module>
-        <module name="AbbreviationAsWordInName">
-            <property name="ignoreFinal" value="false"/>
-            <property name="allowedAbbreviationLength" value="1"/>
-        </module>
-        <module name="OverloadMethodsDeclarationOrder"/>
-        <module name="VariableDeclarationUsageDistance" >
-            <property name="allowedDistance" value="10"/>
-        </module>
-        <module name="CustomImportOrder">
-            <property name="separateLineBetweenGroups" value="true"/>
-            <property name="standardPackageRegExp" value="^(java|javax|org.springframework)\."/>
-            <property name="specialImportsRegExp" value="^(com.vendys)\."/>
-            <property name="customImportOrderRules" value="STATIC###THIRD_PARTY_PACKAGE###SPECIAL_IMPORTS"/>
-        </module>
-        <module name="MethodParamPad"/>
-        <module name="NoWhitespaceBefore">
-          <property name="tokens" value="COMMA, SEMI, POST_INC, POST_DEC, DOT, ELLIPSIS, METHOD_REF"/>
-            <property name="allowLineBreaks" value="true"/>
-        </module>
-        <module name="ParenPad"/>
-        <module name="OperatorWrap">
-            <property name="option" value="NL"/>
-            <property name="tokens" value="BAND, BOR, BSR, BXOR, DIV, EQUAL, GE, GT, LAND, LE, LITERAL_INSTANCEOF, LOR, LT, MINUS, MOD, NOT_EQUAL, PLUS, QUESTION, SL, SR, STAR, METHOD_REF "/>
-        </module>
-        <module name="AnnotationLocation">
-            <property name="id" value="AnnotationLocationMostCases"/>
-            <property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF"/>
-        </module>
-        <module name="AnnotationLocation">
-            <property name="id" value="AnnotationLocationVariables"/>
-            <property name="tokens" value="VARIABLE_DEF"/>
-            <property name="allowSamelineMultipleAnnotations" value="true"/>
-        </module>
-        <module name="MethodName">
-            <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9_]*$"/>
-            <message key="name.invalidPattern"
-             value="Method name ''{0}'' must match pattern ''{1}''."/>
-        </module>
-        <module name="EmptyCatchBlock">
-            <property name="exceptionVariableName" value="expected"/>
-        </module>
-        <module name="CommentsIndentation"/>
-
-        <module name="ParameterNumber">
-            <property name="max" value="20"/>
-            <property name="ignoreOverriddenMethods" value="true"/>
-        </module>
-        <!--<module name="SingleLineJavadoc">-->
-            <!--<property name="ignoreInlineTags" value="false"/>-->
-        <!--</module>-->
-        <!--<module name="JavadocParagraph"/>-->
-        <!--<module name="AtclauseOrder">-->
-            <!--<property name="tagOrder" value="@param, @return, @throws, @deprecated"/>-->
-            <!--<property name="target" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF, VARIABLE_DEF"/>-->
-        <!--</module>-->
-        <!--<module name="JavadocTagContinuationIndentation"/>-->
-        <!--<module name="NonEmptyAtclauseDescription"/>-->
-        <!--<module name="SummaryJavadoc">-->
-            <!--<property name="forbiddenSummaryFragments" value="^@return the *|^This method returns |^A [{]@code [a-zA-Z0-9]+[}]( is a )"/>-->
-        <!--</module>-->
-        <!--<module name="JavadocMethod">-->
-            <!--<property name="scope" value="public"/>-->
-            <!--<property name="allowMissingParamTags" value="true"/>-->
-            <!--<property name="allowMissingThrowsTags" value="true"/>-->
-            <!--<property name="allowMissingReturnTag" value="true"/>-->
-            <!--<property name="minLineCount" value="2"/>-->
-            <!--<property name="allowedAnnotations" value="Override, Test"/>-->
-            <!--<property name="allowThrowsTagsForSubclasses" value="true"/>-->
-        <!--</module>-->
     </module>
 </module>
