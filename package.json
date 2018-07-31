@@ -40,12 +40,13 @@
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "distclean": "rimraf node_modules changelog/tmp",
     "precommit": "lint-staged",
-    "release": "lerna exec --bail=false -- 'can-npm-publish && npm publish --access public' && conventional-github-releaser -n ./changelog/index.js",
+    "release": "lerna exec --bail=false -- 'npm publish' && conventional-github-releaser -n ./changelog/index.js",
     "test": "lerna run test --parallel"
   },
   "workspaces": [
     "commit-messages",
     "changelog",
-    "markdown"
+    "markdown",
+    "java"
   ]
 }
