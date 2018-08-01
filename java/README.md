@@ -158,9 +158,7 @@ checkstyle: [`CustomImportOrder`](http://checkstyle.sourceforge.net/config_impor
 
 임포트는 다음 순서를 따른다.
 
-1. `import java.*`
-1. `import javax.*`
-1. `import org.springframework.*`
+1. `import java.*`, `import javax.*`, `import org.springframework.*`
 1. `com.vendys.*`를 제외한 정적이 아닌 그 외 임포트
 1. `import com.vendys.*`
 1. 모든 정적 임포트
@@ -216,7 +214,7 @@ checkstyle: [`OneTopLevelClass`](http://checkstyle.sourceforge.net/config_design
 
 checkstyle: [`NeedBraces`](http://checkstyle.sourceforge.net/config_blocks.html#NeedBraces)
 
-중괄호(`{}`)는 본문이 비어 있거나 단 하나의 문장만 포함하는 경우에도 `if`, `else`, `for`, `do`, `while` 등의 문장에서 항상 사용된다.
+중괄호(`{}`)는 문장 블록을 명확히 하기 위해 본문이 비어 있거나 단 하나의 문장만 포함하는 경우에도 `if`, `else`, `for`, `do`, `while` 등의 문장에서 항상 사용된다.
 
 <a name="blocks-k-r-style"></a>
 #### 비어 있지 않은 블록: K & R 스타일
@@ -256,7 +254,7 @@ return new MyClass() {
 };
 ```
 
-[열거형 클래스](#enum-classes)에는 몇 가지 예외가 존재한다.
+[열거형(enum) 클래스](#enum-classes)에는 몇 가지 예외가 존재한다.
 
 <a name="braces-empty-blocks"></a>
 #### 빈 블록: 간결하게 표현 가능
@@ -332,9 +330,9 @@ checkstyle: [`OperatorWrap`](http://checkstyle.sourceforge.net/config_whitespace
 
 ```java
 public void static main(
-        String[] args,
-        Member[] members
-        ) throws Exception {
+            String[] args,
+            Member[] members
+            ) throws Exception {
     if (isLoginClient
             || isLogoutPermission
             || isLogoutPermission) {
@@ -386,13 +384,13 @@ public void static main(
 ### 공백
 
 <a name="vertical-whitespace"></a>
-#### 수직 공백
+#### 수직 공백(빈 줄)
 
 다음 경우에는 항상 하나의 빈 줄이 사용된다.
 
 1. 클래스의 연속된 멤버 또는 이니셜라이저 사이: 필드, 생성자, 메소드, 중첩 클래스, 정적 이니셜라이저, 인스턴스 이니셜라이저
   * **예외**: 두 개의 연속된 필드 사이(그 사이 다른 코드는 없음) 빈 줄은 선택적이다. 이러한 빈 줄은 필드의 논리적 그룹을 만들기 위해 사용된다.
-  * **예외**: 열거형 상수(enum constants) 사이의 빈 줄은 [열거형 클래스](#enum-classes)에 대한 내용에서 다뤄진다.
+  * **예외**: 열거형 상수(enum constants) 사이의 빈 줄은 [열거형(enum) 클래스](#enum-classes)에 대한 내용에서 다뤄진다.
 1. 본 문서의 다른 절([소스 파일 구조](#source-file-structure) 또는 [임포트 문장](#import-statements))에서 요구되는 경우
 
 빈 줄은 가독성을 높일 수 있는 곳이면 어디에나 사용될 수 있다. 예를 들어, 문장 사이에 빈 줄을 사용해 코드를 논리적인 단위로 작게 나눌 수 있다. 첫 번째 멤버 또는 이니셜라이저의 앞이나 클래스의 마지막 멤버 또는 이니셜라이저 뒤에 사용된 빈 줄은 추천되는 것도 추천되지 않는 것도 아니다.
@@ -400,7 +398,7 @@ public void static main(
 여러 개의 연속된 빈 줄을 사용하는 것은 가능하지만, 요구되는(또는 추천되는) 것은 아니다.
 
 <a name="horizontal-whitespace"></a>
-#### 수평 공백
+#### 수평 공백(스페이스)
 
 checkstyle: [`GenericWhitespace`](http://checkstyle.sourceforge.net/config_whitespace.html#GenericWhitespace), [`MethodParamPad`](http://checkstyle.sourceforge.net/config_whitespace.html#MethodParamPad), [`NoWhitespaceBefore`](http://checkstyle.sourceforge.net/config_whitespace.html#NoWhitespaceBefore), [`ParenPad`](http://checkstyle.sourceforge.net/config_whitespace.html#ParenPad)
 
@@ -457,7 +455,7 @@ private Color color; // 정렬되지 않도록 놔둬도 무방하다.
 ### 특정 요소
 
 <a name="enum-classes"></a>
-#### 열거형 클래스
+#### 열거형(enum) 클래스
 
 열거형 상수 뒤의 각 쉼표 뒤에서 줄 바꿈을 하는 것은 선택적이다. 추가적인 빈 줄(일반적으로는 하나)도 허용된다. 다음은 하나의 가능한 경우를 보여준다.
 
