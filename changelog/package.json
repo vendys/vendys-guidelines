@@ -1,7 +1,7 @@
 {
   "name": "@vendys/conventional-changelog-preset",
   "description": "벤디스 가이드라인 기반의 conventional-changelog 프리셋",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Vendys Inc.",
   "bugs": {
     "url": "https://github.com/vendys/vendys-guidelines/issues"

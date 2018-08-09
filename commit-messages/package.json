@@ -1,7 +1,7 @@
 {
   "name": "@vendys/commitlint-config",
   "description": "벤디스 가이드라인 기반의 commitlint 설정",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Vendys Inc.",
   "bugs": {
     "url": "https://github.com/vendys/vendys-guidelines/issues"
