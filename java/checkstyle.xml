@@ -15,6 +15,13 @@
         <property name="eachLine" value="true"/>
     </module>
 
+    <!-- Java 코드는 130자의 열 제한을 가짐 -->
+    <!-- http://checkstyle.sourceforge.net/config_sizes.html#LineLength -->
+    <module name="LineLength">
+        <property name="max" value="130"/>
+        <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://|^[ ]*@.*"/>
+    </module>
+
     <!-- http://checkstyle.sourceforge.net/config.html#TreeWalker -->
     <module name="TreeWalker">
         <property name="tabWidth" value="4"/>
@@ -138,13 +145,6 @@
         <!-- K & R 스타일 -->
         <!-- http://checkstyle.sourceforge.net/config_blocks.html#LeftCurly -->
         <module name="LeftCurly"/>
-
-        <!-- Java 코드는 130자의 열 제한을 가짐 -->
-        <!-- http://checkstyle.sourceforge.net/config_sizes.html#LineLength -->
-        <module name="LineLength">
-            <property name="max" value="130"/>
-            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://|^[ ]*@.*"/>
-        </module>
 
         <!-- 지역 변수명은 lowerCamelCase로 작성 -->
         <!-- http://checkstyle.sourceforge.net/config_naming.html#LocalVariableName -->
