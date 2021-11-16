@@ -1,0 +1,10 @@
+{
+  "eslintIntegration": true,
+  "formatOnSave": true,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "none",
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "printWidth": 120
+}
