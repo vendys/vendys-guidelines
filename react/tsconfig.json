@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "noImplicitAny": false,
+    "preserveConstEnums": true,
+    "baseUrl": "./src",
+    "paths": {
+//      "containers/*": ["containers/*"],
+//      "apis/*": ["apis/*"],
+//      "state/*": ["state/*"]
+//        ... something alias
+    },
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "es7",
+      "es2017"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "declaration": false,
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "forceConsistentCasingInFileNames": false,
+    "moduleResolution": "node",
+    "noEmitOnError": false,
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "noUnusedLocals": false,
+    "strict": false,
+    "strictFunctionTypes": false,
+    "pretty": false,
+    "removeComments": false,
+    "sourceMap": false,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*",
+    "internals/templates/**/*"
+  ],
+  "exclude": [
+    "typings/browser.d.ts",
+    "typings/browser",
+    "node_modules/**/*"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "app/**",
+      "components/**",
+      "node_modules/**/*"
+    ]
+  }
+}
